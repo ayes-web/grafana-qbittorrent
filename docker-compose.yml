@@ -1,0 +1,20 @@
+---
+version: "3.9"
+services:
+    grafana-qbittorrent:
+        image: ayay2021/grafana-qbittorrent
+        container_name: grafana-qbittorrent
+        environment:
+            - QB_USERNAME=admin
+            - QB_SERVER_IP=qbittorrent
+            - QB_PASSWORD=234
+            - QB_PORT=8080
+            - POSTGRES_USER=postgres
+            - POSTGRES_SERVER_IP=postgres
+            - POSTGRES_PASSWORD=123
+            - POSTGRES_PORT=5432
+            - POSTGRES_DB=torrent
+        restart: always
+        depends_on:
+            - postgres
+            - qbittorrent
